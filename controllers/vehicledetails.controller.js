@@ -10,7 +10,7 @@ const s3 = new AWS.S3({
   sslEnabled: true
 });
 
-// const multer = require('multer'); // file storing middleware
+// testconst multer = require('multer'); // file storing middleware
 // //MULTER CONFIG: to get file photos to temp server storage
 // const multerConfig = {
     

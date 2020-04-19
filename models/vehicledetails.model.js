@@ -17,6 +17,7 @@ let VehicleDetailsSchema = new Schema({
     saledate: {type: Date},
     saletype: {type: String},
     openrecall: {type: String},
+    filename: {type: String},
 });
 
 

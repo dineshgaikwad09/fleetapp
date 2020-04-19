@@ -53,6 +53,7 @@ exports.test = function (req, res) {
 
 exports.insert_vehicle_details = function (req, res) {
     
+    const fileName = '6AFFFI20707013.jpg';
     
     let vehicleDetails = new VehicleDetails(
         {
@@ -65,7 +66,8 @@ exports.insert_vehicle_details = function (req, res) {
             miles: req.body.miles,
             saledate: req.body.saledate,
             saletype: req.body.saletype,
-            openrecall: req.body.openrecall
+            openrecall: req.body.openrecall,
+            filename: fileName
         }
     );
 
@@ -75,7 +77,6 @@ exports.insert_vehicle_details = function (req, res) {
             res.send('Error '+ err)
         }
         
-        const fileName = '6AFFFI20707013.jpg';
         fs.readFile(fileName, (err, data) => {
             if (err) throw err;
             const params = {

@@ -6,8 +6,7 @@ const AWS = require('aws-sdk');
 
 const s3 = new AWS.S3({
   accessKeyId: 'AKIAJDXJAKI4QK7XMHWA',
-  secretAccessKey: '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',
-  sslEnabled: true
+  secretAccessKey: 'nQlgDUsTHxJoSFt2SK7rt1Mz0WkQa9IyYiwQt+8N'
 });
 
 // testconst multer = require('multer'); // file storing middleware

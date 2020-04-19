@@ -22,7 +22,7 @@ const app = express();
 
 // Set up mongoose connection
 const mongoose = require('mongoose');
-let dev_db_url = 'mongodb+srv://dineshdbuser:BCZ8LBm0rVPM0cyh@cluster0-p3dvl.mongodb.net/fleetdb';
+let dev_db_url = 'mongodb+srv://dbuserdinesh:KQIzaSvHcNJTchpF@cluster0-kqitd.mongodb.net/fleetdb';
 let mongoDB = process.env.MONGODB_URI || dev_db_url;
 mongoose.connect(mongoDB);
 mongoose.Promise = global.Promise;

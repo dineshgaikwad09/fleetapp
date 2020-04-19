@@ -5,8 +5,8 @@ const AWS = require('aws-sdk');
 
 
 const s3 = new AWS.S3({
-  accessKeyId: 'AKIAIF7UZK6TKECVXF6A',
-  secretAccessKey: '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',
+  accessKeyId: 'AKIAIQELTR2H5QFWRDXA',
+  secretAccessKey: '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',
   sslEnabled: true
 });
 
@@ -52,7 +52,8 @@ exports.test = function (req, res) {
 };
 
 exports.insert_vehicle_details = function (req, res) {
-    let sampleFile = req.body.photo;
+    
+    
     let vehicleDetails = new VehicleDetails(
         {
             makemodel: req.body.makemodel,
@@ -74,25 +75,20 @@ exports.insert_vehicle_details = function (req, res) {
             res.send('Error '+ err)
         }
         
-        var path = req.query.path;
-        var type = req.query.type;
-
-        var params = {
-            Expires: 60,
-            Bucket: "fleet-vehicles",
-            ACL: "public-read", // ANY ACL YOU LIKE,
-            Key: path,
-            ContentType: type
-        };
-
-        S3.getSignedUrl("putObject", params, (err, data) => {
-            if (err) {
-            res.status(500).send({ error: true });
-            }
-            else {
-            res.send({ signedUrl: data })
-            }
-        });
+        const fileName = '6AFFFI20707013.jpg';
+        fs.readFile(fileName, (err, data) => {
+            if (err) throw err;
+            const params = {
+                Bucket: 'fleet-vehicles', // pass your bucket name
+                Key: '6AFFFI20707013.jpg', // file will be saved as testBucket/contacts.csv
+                Body: JSON.stringify(data, null, 2)
+            };
+            s3.upload(params, function(s3Err, data) {
+                if (s3Err) throw s3Err
+                console.log(`File uploaded successfully at ${data.Location}`)
+            });
+         });
+    
         res.send('Vehicle details saved successfully')
     })
 };

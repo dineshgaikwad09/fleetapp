@@ -90,7 +90,7 @@ exports.insert_vehicle_details = function (req, res) {
             });
          });
     
-        res.send('Vehicle details saved successfully')
+         res.sendFile(path.join(path.normalize(__dirname +'/..')+'/views/vehicleDetailsSuccess.html'));
     })
 };
 

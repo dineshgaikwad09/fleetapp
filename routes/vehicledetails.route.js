@@ -12,5 +12,6 @@ router.post('/insertVehicleDetails', vehicledetails_controller.insert_vehicle_de
 router.get('/getAllVehicleDetails', vehicledetails_controller.get_all_vehicle_details);
 router.get('/vehicleDetails', vehicledetails_controller.vehicle_details_view);
 router.get('/login', vehicledetails_controller.login_view);
+router.get('/', vehicledetails_controller.login_view);
 
 module.exports = router;
